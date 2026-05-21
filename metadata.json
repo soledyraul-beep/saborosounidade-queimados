@@ -1,0 +1,6 @@
+{
+  "name": "Saboroso Açaí e Sorvete | Queimados RJ",
+  "description": "O açaí mais rápido e delicioso de Queimados. Peça pelo iFood ou visite nossa unidade na Avenida do Tinguá.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4B1D6B;
+  --color-secondary: #A855F7;
+  --color-accent: #D4FF3F; /* Cyber Lime - eye-catching and modern */
+  --color-accent-soft: #E9FF97;
+  --color-bg-dark: #0F0714;
+  --color-bg-mid: #1A0B26;
+  --color-surface: #F5EEFF;
+  --color-muted: #B196C9;
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  @keyframes pulse-purple {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 200, 0.7); transform: scale(1); }
+    50% { box-shadow: 0 0 40px 10px rgba(157, 78, 221, 0.3); transform: scale(1.05); }
+  }
+
+  @keyframes shine-sweep {
+    0% { left: -100%; transition-timing-function: ease-in; }
+    30% { left: 100%; transition-timing-function: ease-in; }
+    100% { left: 100%; }
+  }
+}
+
+@layer utilities {
+  .headline-shadow {
+    text-shadow:
+      2px 4px 0px #2D0B5A,
+      0px 0px 40px rgba(168, 85, 247, 0.2);
+  }
+
+  .headline-accent {
+    background: linear-gradient(135deg, #D4FF3F 0%, #A855F7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .animate-pulse-custom {
+    animation: pulse 2.5s infinite;
+  }
+
+  .btn-saboroso {
+    background: linear-gradient(135deg, #FF00C8 0%, #9D4EDD 100%);
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    animation: pulse-purple 3s infinite;
+  }
+
+  .btn-saboroso::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine-sweep 4s infinite;
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-bg-dark text-white selection:bg-accent selection:text-white;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
